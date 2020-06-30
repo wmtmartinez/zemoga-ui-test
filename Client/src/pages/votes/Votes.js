@@ -1,12 +1,26 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Votes.scss';
 import { CharacterVoteCardComponent } from '../../components/character-vote-card';
 import { CHARACTERS_DATA } from '../../data/initial-votes';
+import { UserContext } from '../../data/UserContext';
 
-export const VotesComponent = () => {
+import { logOut } from '../../utils/controllers';
+
+export const VotesComponent = ( { history }) => {
+  const { user, setUser } = useContext(UserContext);
+
+  const logInClick = ()=>{
+    if(user.username) {
+      logOut();
+      setUser({
+        username: null,
+        token: null
+      })
+    }
+  }
 
   return (
     <div className="VotesComponent">
@@ -20,7 +34,7 @@ export const VotesComponent = () => {
             <nav className="main-header__links">
               <Link className="menu-item" to="/pasttrials">Past Trials</Link>
               <Link className="menu-item" to="/howitworks">How It Works</Link>
-              <Link className="menu-item" to="/login">Log In / Sign Up</Link>
+              <Link className="menu-item" to={!user.username ? '/login' : '' } onClick={logInClick}>{ user.username ? 'Log Out' : 'Log In / Sign Up'} </Link>
               <button className="menu-search"></button>
             </nav>
           </section>

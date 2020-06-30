@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/classes.scss';
+
+.LoginComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: $font-color-dark-light;
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      color: $font-color-base;
+      margin-bottom: 10px;
+    }
+
+    .button-vote {
+      height: 40px;
+      margin-bottom: 50px;
+    }
+
+    .button-clear {
+      height: 40px;
+      font-size: 14px;
+      color: $font-color-base;
+      border: 1px;
+    }
+  }
+}

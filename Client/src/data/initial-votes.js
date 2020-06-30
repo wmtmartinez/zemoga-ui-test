@@ -10,7 +10,8 @@ export const CHARACTERS_DATA = [
     area: 'Entertainment',
     picture: kanye,
     votesPros: 13,
-    votesCons: 7
+    votesCons: 7,
+    totalVotes: 0
   },
   {
     id: 'mark-suckerberg',
@@ -18,7 +19,8 @@ export const CHARACTERS_DATA = [
     area: 'Business',
     picture: mark,
     votesPros: 7,
-    votesCons: 13
+    votesCons: 13,
+    totalVotes: 0
   },
   {
     id: 'cristina',
@@ -26,7 +28,8 @@ export const CHARACTERS_DATA = [
     area: 'Politics',
     picture: cristina,
     votesPros: 7,
-    votesCons: 13
+    votesCons: 13,
+    totalVotes: 0
   },
   {
     id: 'malala',
@@ -34,7 +37,7 @@ export const CHARACTERS_DATA = [
     area: 'Entertainment',
     picture: malala,
     votesPros: 13,
-    votesCons: 7
+    votesCons: 7,
+    totalVotes: 0
   }
 ]
-

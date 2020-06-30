@@ -2,15 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { VOTE_TYPE } from "../utils/constants";
 
-export const VotingBoxComponent = ({characterId, onVote})=>{
-  const DEFAULT_DESCRIPTION = 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.';
+export const VotingBoxComponent = ({onVote, onVoteAgain})=>{
   const DEFAULT_BUTTON_TEXT = 'Vote now';
   const BUTTON_VOTE_DONE_TEXT = 'Vote again';
-  const VOTE_DONE = 'Thank you for voting!';
-  
+
   const [ voteSelected, setVoteSelected ] = useState(null);
   const [ voteDone, setVoteDone ] = useState(false);
-
   const buttonVote = useRef();
 
   const selectVote = (vote) => {
@@ -19,18 +16,18 @@ export const VotingBoxComponent = ({characterId, onVote})=>{
 
   const voteHandler = () => {
     if(voteSelected) {
-      setVoteDone(true);
-      setVoteSelected(null);
-
       if(onVote) {
         onVote(voteSelected);
       }
+      setVoteDone(true);
     }
   }
 
   const voteAgain = () => {
     setVoteDone(false);
-    setVoteSelected(null);
+    if(onVoteAgain) {
+      onVoteAgain(true);
+    }
   }
 
   useEffect(()=>{
@@ -41,7 +38,6 @@ export const VotingBoxComponent = ({characterId, onVote})=>{
 
   return(
     <>
-      <p className="info__description"> { !voteDone ? DEFAULT_DESCRIPTION : VOTE_DONE } </p>
 
       {
         voteDone ? (
@@ -52,7 +48,7 @@ export const VotingBoxComponent = ({characterId, onVote})=>{
           <section className="info__votes-buttons">
             <button className="button vote-box-thumb-up thumb-small-up" onClick={()=> selectVote(VOTE_TYPE.PROS)}></button>
             <button className="button vote-box-thumb-down thumb-small-down" onClick={()=> selectVote(VOTE_TYPE.CONS)}></button>
-            <button ref={buttonVote} className={`button button-vote info__btn-vote ${!voteSelected ? 'button-disabled' : ''}`} onClick={voteHandler}>{!voteDone ? DEFAULT_BUTTON_TEXT : BUTTON_VOTE_DONE_TEXT}</button>
+            <button ref={buttonVote} className={`button button-vote info__btn-vote ${!voteSelected ? 'button-disabled' : ''}`} onClick={voteHandler}>{ DEFAULT_BUTTON_TEXT }</button>
           </section>
         )
       }

@@ -140,3 +140,39 @@
   width: 24px;
   height: 26px;
 }
+
+/*Sign in Sign up styles*/
+.input-box {
+  background-color: $background-color-gray;
+  font-size: 14px;
+  font-weight: 300;
+  height: 30px;
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+
+.input-error {
+  border: 0.7px solid $color-error;
+}
+
+.user-input-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.error-indicator {
+  position: absolute;
+  right: -9px;
+  color: $color-error;
+}
+
+.user-error-form {
+  font-size: 23px;
+  font-weight: 300;
+  color:$font-color-base;
+  padding-bottom: 10px;
+}
