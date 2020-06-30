@@ -1,0 +1,129 @@
+.thumb-small-up { 
+  @include mix-thumb-container {
+    @include mix-thumb($type: "up", $size: "small"); 
+  }
+}
+
+.thumb-small-down { 
+  @include mix-thumb-container {
+    @include mix-thumb($type: "down", $size: "small"); 
+    margin-top: 5px;
+  }
+}
+
+.thumb-medium-up { 
+  @include mix-thumb-container {
+    @include mix-thumb($type: "up", $size: "medium"); 
+  }
+}
+
+.thumb-medium-down { 
+  @include mix-thumb-container {
+    @include mix-thumb($type: "down", $size: "medium"); 
+    margin-top: 5px;
+  }
+}
+
+.thumb-large-up { 
+  @include mix-thumb-container {
+    @include mix-thumb($type: "up", $size: "large"); 
+  }
+}
+
+.thumb-large-down { 
+  @include mix-thumb-container {
+    @include mix-thumb($type: "down", $size: "large"); 
+    margin-top: 5px;
+  }
+}
+
+.vote-box-thumb-up {
+  @extend %vote-thumb;
+  background-color: $background-color-pros;
+}
+
+.vote-box-thumb-down {
+  @extend %vote-thumb;
+  background-color: $background-color-cons;
+}
+
+.button {
+  font-family: $font-family-base;
+  cursor: pointer;
+  &:focus  {
+    outline: 0;
+  }
+}
+
+.button-vote {
+  background-color: transparentize($background-color-dark, 0.5);
+  font-size: 14px;
+  color: $font-color-base; 
+  border: 1px solid $border-color-light;
+  &:focus  {
+    outline: 0;
+  }
+}
+
+.button-clear {
+  background-color: transparentize($background-color-light, 0.5);
+  font-size: 20px;
+  font-weight: 500;
+  color: $font-color-dark;
+  border: 3px solid $border-color-dark;
+}
+
+.button-close {
+  &::after {
+    content: '';
+    display: block;
+    @include mix-image-background($path:'../images/button-close.png');
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.votes-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  
+  .votes-container__thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+
+  .vote-thumb-up {
+    @extend .votes-container__thumb;
+    @extend .thumb-large-up;
+    background-color: $background-color-pros;
+  }
+
+  .vote-thumb-down {
+    @extend .votes-container__thumb;
+    @extend .thumb-large-down;
+    background-color: $background-color-cons;
+  }
+  
+}
+
+.menu-item {
+  font-family: 'Lato';
+  font-size: 16px;
+  font-weight: 300;
+  color: $font-color-base; 
+  text-decoration: none;
+}
+
+.menu-search {
+  @include mix-image-background($path:'../images/search.png');
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline:0;
+  width: 24px;
+  height: 26px;
+}

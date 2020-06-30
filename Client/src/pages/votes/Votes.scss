@@ -1,0 +1,515 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/classes.scss';
+
+.VotesComponent {
+  .main-header {
+    $self: '.main-header';
+    position: relative;
+    padding: 0 $padding-large;
+    @include mix-image-background($path:'../images/pope@2x.png', $position: top);
+
+    .gradient-background {
+      position: absolute;
+      width: 100%;
+      height: 150px;
+      left: 0;
+      top: 0;
+      z-index: 0;
+      background: -moz-linear-gradient(top,  rgba(51,51,51,1) 0%, rgba(51,51,51,0) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  rgba(51,51,51,1) 0%,rgba(51,51,51,0) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  rgba(51,51,51,1) 0%,rgba(51,51,51,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    }
+    
+    &__title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      padding-top: 48px;
+      padding-bottom: 89px;
+      position: relative;
+      z-index: 1;
+
+      #{ $self }__text {
+        width: 50%;
+        margin: 0;
+        font-size: 32px;
+        font-weight: normal;
+        color: $font-color-base;
+      }
+
+      #{ $self }__nav {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+
+        #{ $self }__links {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+
+    &__opinion-card {
+      $opinion: '.opinion-card';
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      color: $font-color-base; 
+      margin-bottom: 70px + $main-header-footer-height;
+
+      article {
+        padding: 0 35px;
+
+        background: transparentize($color: $background-color-dark-light, $amount: .5);
+        backdrop-filter: blur(20px);
+
+        #{ $opinion }__subtitle {
+          font-size: 16px;
+          opacity: 0.74;
+          font-weight: 300;
+          line-height: 1.19;
+          color: $font-color-base;
+          margin-top: 33px;
+        }
+
+        #{ $opinion }__title {
+          font-size: 60px;
+          font-weight: 400;
+          line-height: 1;
+        }
+        
+
+        #{ $opinion }__text {
+          font-size: 21px;
+          font-weight: 300;
+          line-height: 1.14;
+          margin-top: 27px;
+          margin-bottom: 25px;
+        }
+
+        #{ $opinion }__moreinfo {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 1.71;
+          margin-bottom: 43px;
+
+          .wiki-icon::after {
+            content: '';
+            display: block;
+            @include mix-image-background($path:'../images/wiki.png');
+            width: 16px;
+            height: 12px;
+          }
+
+          a {
+            color: $font-color-base; 
+            margin-left: 5px;
+          }
+        }
+
+        #{ $opinion }__vote-text {
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 1;
+          margin: 0;
+          margin-bottom: 35px;
+        }
+      }
+
+      #{ $opinion }__footer {
+        height: 100%;
+
+        .votes-container {
+          height: 80px;
+        }
+      }
+    }
+
+    &__counting-days {
+      $countingDays: '.counting-days';
+      display: flex;
+
+      #{ $countingDays }__closing {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 35%;
+        height: $main-header-footer-height;
+        background: transparentize($color: $background-color-gray-dark, $amount: 0.6);
+        font-size: 13px;
+        color: $font-color-base; 
+        clip-path: polygon(0 0, 90% 0, 90% 40%, calc(90% + 10px) 51%, 90% 60%, 90% 100%, 0% 100%);
+
+        span {
+          margin-right: 14%;
+        }
+      }
+
+      #{ $countingDays }__days-left {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        left: 31.5%;
+        width: 68.5%;
+        height: $main-header-footer-height;
+        font-weight: 300;
+        background-color: transparentize($color: $background-color-light, $amount: 0.4);
+        color: $font-color-dark-light;
+
+        clip-path: polygon(100% 0, 0 0, 0 20px, 10px 25px, 0 31px, 0% 100%, 100% 100%);
+
+        span {
+          font-size: 36px;
+          margin-left: 16px;
+        }
+      }
+    } 
+  }
+
+  main {
+    padding: 0 $padding-large;
+
+    .vote-note {
+      $voteNote: '.vote-note';
+      display: flex;
+      align-items: center;
+      background-color: $background-color-gray;
+      width: 100%;
+      line-height: 1.12;
+      color: $font-color-dark;
+      padding: 24px;
+      margin-top: 33px;
+      margin-bottom: 39px;
+      box-sizing: border-box;
+
+      &__left-text {
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 15%;
+
+        #{ $voteNote }__minor-text {
+          font-size: 21.5px;
+          font-weight: 300;
+          line-height: 1.21;
+          color: $font-color-dark;
+        }
+  
+        #{ $voteNote }__higher-text {
+          font-size: 37px;
+          font-weight: bold;
+        }
+      }
+
+      &__right-text {
+        width: 85%;
+        display: flex;
+        align-items: center;
+        margin-right: 29px;
+        margin-left: 25px;
+      }
+      
+    }
+
+    .characters-section {
+      $characSection: '.characters-section';
+
+      h5 {
+        font-size: 40px;
+        font-weight: 300;
+        line-height: 1.2;
+        color: $font-color-dark;
+        margin-bottom: 40px;
+      }
+
+      #{$characSection}__container {
+        margin-bottom: 40px;
+
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        
+        #{$characSection}__character {
+          position: relative;
+          $character: '.character';
+          height: 550px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+
+          #{$character}__content {
+            position: relative;
+            color: $font-color-base; 
+
+            display: grid;
+            grid-template-columns: 41px auto;
+            grid-template-rows: auto auto;
+            align-items: end;
+
+            #{$character}__higher-vote-thumb {
+              align-self: end;
+              margin-bottom: 4px;
+            }
+
+            #{$character}__title {
+              font-size: 45px;
+              font-weight: 400;
+              line-height: 1;
+            }
+
+            #{$character}__info {
+              $info: ".info";
+              display: flex;
+              flex-direction: column;
+              min-height: 166px;
+              grid-column-start: 2;
+
+              #{$info}__subtitle {
+                line-height: 1;
+                font-size: 12px;
+                font-weight: 400;
+                margin-top: 8px;
+                margin-bottom: 18px;
+              }
+
+              #{$info}__description {
+                font-size: 16px;
+                font-weight: 300;
+                margin-bottom: 18px;
+                flex: 1;
+              }
+
+              #{$info}__votes-buttons {
+                display: flex;
+                align-items: center;
+                margin-bottom: 32px;
+
+                .vote-box-thumb-up, .vote-box-thumb-down {
+                  margin-right: 10px;
+
+                  &:focus  {
+                    outline: 2px solid $border-color-light;
+                  }
+                }
+
+                #{$info}__btn-vote {
+                  height: 40px;
+                  width: 100px;
+                }
+              }
+            }
+          }
+
+          #{$character}__votes_results {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 49px;
+            opacity: 0.7;
+
+            .result-text {
+              font-size: 29px;
+              color: $font-color-base; 
+              font-weight: 300;
+            }
+
+            .result-data {
+              display: flex;
+              align-items: center;
+              height: 100%;
+            }
+
+            .result-thumb-indicator {
+              padding: 0 10px;
+            }
+
+            #{$character}__pros {
+              justify-content: flex-start;
+              background-color: $background-color-pros;
+            }
+
+            #{$character}__cons {
+              justify-content: flex-end;
+              background-color: $background-color-cons;
+            }
+          }
+
+          #{$character}__gradient-background {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 550px;
+            opacity: 0.8;
+            height: 90%;
+            background: -moz-linear-gradient(bottom,  rgba(0,0,0,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(bottom,  rgba(0,0,0,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to top,  rgba(0,0,0,1) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          }
+        }
+
+        /*These percentages will be calculated dynamically*/
+        #{$characSection}__character.kanye-west {
+          background-image: url("../../images/characters/kanye.png");
+          .character__votes_results {
+            .character__pros {
+              width: 64%;
+            }
+
+            .character__cons {
+              width: 36%;
+            }
+          }
+        }
+
+        #{$characSection}__character.mark-suckerberg {
+          background-image: url("../../images/characters/mark.png");
+          .character__votes_results {
+            .character__pros {
+              width: 36%;
+            }
+
+            .character__cons {
+              width: 64%;
+            }
+          }
+        }
+
+        #{$characSection}__character.cristina {
+          background-image: url("../../images/characters/cristina.png");
+          .character__votes_results {
+            .character__pros {
+              width: 36%;
+            }
+
+            .character__cons {
+              width: 64%;
+            }
+          }
+        }
+
+        #{$characSection}__character.malala {
+          background-image: url("../../images/characters/malala.png");
+          .character__votes_results {
+            .character__pros {
+              width: 64%;
+            }
+
+            .character__cons {
+              width: 36%;
+            }
+          }
+        }
+      }
+    }
+
+    .addional-information {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 85px;
+      padding: 0 20px;
+      @include mix-image-background($path:'../images/people.png');
+      margin-bottom: 50px;
+
+
+      p {
+        font-size: 30px;
+        color: $font-color-dark;
+        line-height: 0.8;
+        z-index: 1;
+      }
+
+      button {
+        width: 210px;
+        height: 53px;
+        z-index: 1;
+      }
+
+      .background-opacity {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: $background-color-light;
+        opacity: 0.8;
+      }
+    }
+
+    .divider {
+      border-top: 1px dotted $background-color-gray-medium;
+      height: 1px;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    .main-footer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 78px;
+
+      * {
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.58;
+        color: $font-color-dark;
+      }
+
+      .contact, .social-network {
+        display: flex;
+        align-items: center;
+      }
+
+      .contact {
+        a {
+          margin-right: 20px;
+        }
+      }
+
+      .social-network {
+        a {
+          margin-left: 20px;
+        }
+
+        .footer__facebook::after {
+          content:'';
+          display: block;
+          @include mix-image-background($path:'../images/facebook.png');
+          width: 25px;
+          height: 25px;
+        }
+
+        .footer__twitter::after {
+          content:'';
+          display: block;
+          @include mix-image-background($path: '../images/twitter.png');
+          width: 30px;
+          height: 25px;
+        }
+      }
+    }
+  }
+}
+
+@import '../../styles/phone-screen.scss';
+@import '../../styles/tablet-screen.scss';

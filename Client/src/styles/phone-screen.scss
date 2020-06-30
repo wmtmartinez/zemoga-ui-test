@@ -1,0 +1,108 @@
+@include phone-size {
+
+  .VotesComponent {
+
+    .main-header {
+      padding: 0;
+
+      .main-header__title {
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+        margin-left: 2.5%;
+
+        .main-header__text {
+          margin-bottom: 15px;
+          width: 100%;
+        }
+        .main-header__nav {
+          width: 100%;
+        }
+      }
+
+      .main-header__counting-days {
+        .counting-days__closing {
+          span {
+            margin-right: 20%;
+          }
+        }
+      }
+
+      .main-header__opinion-card {
+        width: 100%;
+        article {
+          padding: 0;
+          backdrop-filter: blur(2px);
+          padding: 0 10px;
+        }
+      } 
+    }
+
+    main {
+      padding: 0;
+
+      .vote-note {
+        position: relative;
+        flex-direction: column;
+
+        .vote-note__left-text {
+          width: 100%;
+        }
+
+        .vote-note__right-text {
+          width: 100%;
+          margin-top: 20px;
+        }
+
+        .button-close {
+          position: absolute;
+          right: 20px;
+          top: 20px;
+        }
+      }
+
+      .characters-section {
+
+        h5 {
+          padding-left: 10px;
+        }
+
+        .characters-section__container {
+          grid-template-columns: 1fr;
+
+          .characters-section__character {
+            .character__gradient-background  {
+              height: 90%;
+            }
+          }
+        }
+
+      } 
+
+      .addional-information {
+        flex-direction: column;
+        padding: 20px;
+        height: 100%;
+        min-height: 85px;
+
+        p {
+          margin-bottom: 30px;
+        }
+      }
+
+      .main-footer {
+
+        .contact {
+          flex-direction: column;
+          align-items: flex-start;
+          padding-left: 10px;
+        }
+
+        .social-network {
+          padding-right: 10px;
+          align-items: flex-start;
+        }
+      }
+    }
+  }
+}

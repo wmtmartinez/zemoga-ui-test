@@ -1,0 +1,38 @@
+/* Placeholders */
+%thumb-small-width { width: 18px; }
+%thumb-small-height { height: 18px; }
+
+%thumb-medium-width { width: 28px; }
+%thumb-medium-height { height: 28px; }
+
+%thumb-large-width { width: 36px; }
+%thumb-large-height { height: 37px; }
+
+%vote-thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 31px;
+    height: 31px;
+    border: 0;
+  }
+  
+
+/* Variables */
+$font-family-base: 'lato';
+$font-color-base: #ffffff;
+$font-color-dark: #333333;
+$font-color-dark-light: #464646;
+$border-color-dark: $font-color-dark;
+$background-color-light: $font-color-base;
+$background-color-dark-light: $font-color-dark;
+$background-color-dark: #000000;
+$background-color-gray: #ebebeb;
+$background-color-gray-dark: #707070;
+$background-color-gray-medium: #979797;
+$border-color-light: $font-color-base;
+$background-color-pros: #1cbbb4;
+$background-color-cons: #ffad1d;
+
+$padding-large: 133px;
+$main-header-footer-height: 50px;
