@@ -83,6 +83,19 @@
   }
 }
 
+.VotesComponent main 
+.characters-section 
+.characters-section__container 
+.characters-section__character 
+.character__content 
+.character__info 
+.info__votes-buttons 
+.info__btn-vote.button-disabled {
+  color: #464646;
+  border-color: #464646;
+  cursor: auto;
+}
+
 .votes-container {
   display: flex;
   width: 100%;
